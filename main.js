@@ -47,7 +47,12 @@ const path = require('path');
 const { PDFDocument } = require('pdf-lib');
 
 const inputFolderPath = './pdf_in';
-
+if (!fs.existsSync('./pdf_in')) {
+    fs.mkdirSync('./pdf_in');
+}
+if (!fs.existsSync('./pdf_out')) {
+    fs.mkdirSync('./pdf_out');
+}
 
 if (!fs.existsSync('./temp')) {
     fs.mkdirSync('./temp');
@@ -153,10 +158,13 @@ async function readpdf() {
                     mergePdfs(pdfFiles, './pdf_out/output.pdf')
                         .then(() => {
                             console.log('PDF files have been merged successfully');
-                            deleteFolderRecursive('./temp')
+                            setTimeout(function () {
+                                deleteFolderRecursive('./temp')
+                                },3000)
                         });
+                       
                 });
-            }, 100)
+            }, 1000)
         });
     }, 5000);
 }

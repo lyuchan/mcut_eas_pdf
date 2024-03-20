@@ -4,16 +4,21 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npm install && node ./main.js"
   },
   "author": "",
   "license": "ISC",
+  "pkg": {
+    "outputPath": "dist"
+  },
+  "bin": "main.js",
   "dependencies": {
     "bwip-js": "^4.3.1",
     "child_process": "^1.0.2",
     "pdf-lib": "^1.17.1",
     "pdf-merge": "^1.2.0",
     "pdf-parse": "^1.1.1",
-    "pdfkit": "^0.14.0"
+    "pdfkit": "^0.14.0",
+    "punycode": "^2.3.1"
   }
 }
